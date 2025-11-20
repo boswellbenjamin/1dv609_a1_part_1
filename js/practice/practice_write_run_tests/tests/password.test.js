@@ -1,7 +1,7 @@
 
 // Select one of the Password versions to test
 
-import { Password } from '../src/BugDoesNotHash'
+// import { Password } from '../src/BugDoesNotHash'
 // import { Password } from '../src/BugDoesNotTrim'
 // import { Password } from '../src/BugisPasswordAlwaysSame'
 // import { Password } from '../src/BugMissingNumberCheck'
@@ -21,5 +21,9 @@ describe('Password class, test suite', () => {
         expect(true).toBe(true);
     });
 
-    //Add your tests here
+   test('Creating a Password with too short input should send Too short password error', () => {
+       expect(() => {
+           new Password('short');
+       }).toThrow('Too short password');
+   });
 });
