@@ -6,7 +6,7 @@
 // import { Password } from '../src/BugisPasswordAlwaysSame'
 // import { Password } from '../src/BugMissingNumberCheck' // Done
 // import { Password } from '../src/BugMissingPasswordCheck'
-// import { Password } from '../src/BugNeverContainsNumbers'
+// import { Password } from '../src/BugNeverContainsNumbers' //Done
 // import { Password } from '../src/BugToShortPassword' // Done
 // import { Password } from '../src/BugVeryShort' // Done
 // import { Password } from '../src/BugWrongHashingAlgorithm'
@@ -17,6 +17,7 @@ describe('Password class, test suite', () => {
     const passwordNoNumber = 'passwordwithoutnumber'
     const shortPassword = 'shortpass'
     const almostCorrectPassword = "thisiseleve"
+    const passwordWithNumber = "thisispassword123"
 
    test('Should throw No number found for password without number', () => {
     expect(() => {
@@ -31,5 +32,10 @@ describe('Password class, test suite', () => {
     test('Should throw error for too short password', () => {
         expect(() => {
             new Password(almostCorrectPassword)}).toThrow('Too short password')
+    })
+
+    test('Should accept password with number', () => {
+        expect (() => {
+            new Password(passwordWithNumber)}).not.toThrow()
     })
 });
