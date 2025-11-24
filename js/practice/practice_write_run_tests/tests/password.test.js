@@ -1,7 +1,7 @@
 
 // Select one of the Password versions to test
 
-// import { Password } from '../src/BugDoesNotHash'
+// import { Password } from '../src/BugDoesNotHash' // Done
 // import { Password } from '../src/BugDoesNotTrim'
 // import { Password } from '../src/BugisPasswordAlwaysSame' // Done
 // import { Password } from '../src/BugMissingNumberCheck' // Done
@@ -49,5 +49,10 @@ describe('Password class, test suite', () => {
         const pw1 = new Password('passwordwithspaces1')
         const pw2 = new Password('   passwordwithspaces1   ')
         expect(pw1.isPasswordSame(pw2)).toBeTruthy()
+        })
+    
+    test('Should hash password', () => {
+        const pw = new Password('hashthisplease1')
+        expect(typeof pw.getPasswordHash()).toBe('number')
         })
     })
