@@ -44,4 +44,10 @@ describe('Password class, test suite', () => {
     const pw2 = new Password('jhdfkljshfklajsdf2')
         expect(pw1.isPasswordSame(pw2)).toBe(false)
     })
-});
+
+    test('Should return trimmed password', () => {
+        const pw1 = new Password('passwordwithspaces1')
+        const pw2 = new Password('   passwordwithspaces1   ')
+        expect(pw1.isPasswordSame(pw2)).toBeTruthy()
+        })
+    })
