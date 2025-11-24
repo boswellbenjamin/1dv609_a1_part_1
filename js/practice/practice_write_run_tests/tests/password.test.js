@@ -8,23 +8,22 @@
 // import { Password } from '../src/BugMissingPasswordCheck'
 // import { Password } from '../src/BugNeverContainsNumbers'
 // import { Password } from '../src/BugToShortPassword'
-// import { Password } from '../src/BugVeryShort'
+// import { Password } from '../src/BugVeryShort' // Done
 // import { Password } from '../src/BugWrongHashingAlgorithm'
-// import { Password } from '../src/BugWrongMessage' // Done
+ import { Password } from '../src/BugWrongMessage' // Done
 // import { Password } from '../src/Correct'
 
 describe('Password class, test suite', () => {
     const passwordNoNumber = 'passwordwithoutnumber'
-    const shortPassword = 'short'
-    const emptyPassword = '';
-
-   test('Creating a Password with too short input should send Too short password error', () => {
-       expect(() => {
-           new Password(shortPassword)}).toThrow('Too short password');
-   });
+    const shortPassword = 'shortpass'
 
    test('Creating a Password without number should send No number found error', () => {
     expect(() => {
        new Password(passwordNoNumber)}).toThrow('No number found')
+    })
+
+    test('Should throw error for too short password, and show correct error message', () => {
+        expect(() => {
+            new Password(shortPassword)}).toThrow('Too short password')
     })
 });
