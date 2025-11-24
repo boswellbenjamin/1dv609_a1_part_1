@@ -3,7 +3,7 @@
 
 // import { Password } from '../src/BugDoesNotHash'
 // import { Password } from '../src/BugDoesNotTrim'
-// import { Password } from '../src/BugisPasswordAlwaysSame'
+// import { Password } from '../src/BugisPasswordAlwaysSame' // Done
 // import { Password } from '../src/BugMissingNumberCheck' // Done
 // import { Password } from '../src/BugMissingPasswordCheck' // Done
 // import { Password } from '../src/BugNeverContainsNumbers' //Done
@@ -11,7 +11,7 @@
 // import { Password } from '../src/BugVeryShort' // Done
 // import { Password } from '../src/BugWrongHashingAlgorithm'
 // import { Password } from '../src/BugWrongMessage' // Done
-// import { Password } from '../src/Correct'
+ import { Password } from '../src/Correct'
 
 describe('Password class, test suite', () => {
     const passwordNoNumber = 'passwordwithoutnumber'
@@ -37,5 +37,11 @@ describe('Password class, test suite', () => {
     test('Should accept password with number', () => {
         expect (() => {
             new Password(passwordWithNumber)}).not.toThrow()
+    })
+
+    test('Should not accept same password twice', () => {
+    const pw1 = new Password('ladjalksjdalksjdklas1')
+    const pw2 = new Password('jhdfkljshfklajsdf2')
+        expect(pw1.isPasswordSame(pw2)).toBe(false)
     })
 });
