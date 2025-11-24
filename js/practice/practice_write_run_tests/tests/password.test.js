@@ -5,13 +5,13 @@
 // import { Password } from '../src/BugDoesNotTrim'
 // import { Password } from '../src/BugisPasswordAlwaysSame'
 // import { Password } from '../src/BugMissingNumberCheck' // Done
-// import { Password } from '../src/BugMissingPasswordCheck'
+// import { Password } from '../src/BugMissingPasswordCheck' // Done
 // import { Password } from '../src/BugNeverContainsNumbers' //Done
 // import { Password } from '../src/BugToShortPassword' // Done
 // import { Password } from '../src/BugVeryShort' // Done
 // import { Password } from '../src/BugWrongHashingAlgorithm'
 // import { Password } from '../src/BugWrongMessage' // Done
- import { Password } from '../src/Correct'
+// import { Password } from '../src/Correct'
 
 describe('Password class, test suite', () => {
     const passwordNoNumber = 'passwordwithoutnumber'
