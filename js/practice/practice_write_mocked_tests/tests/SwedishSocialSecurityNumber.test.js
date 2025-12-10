@@ -1,9 +1,9 @@
 import { describe, test, expect, jest } from '@jest/globals'; 
 // import { SwedishSocialSecurityNumber } from '../src/correct/SwedishSocialSecurityNumber';  // Correct
 // import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecutityNumberWrongYear' // Done
-// import { SwedishSocialSecurityNumber } from '..src/bugs/BuggySwedishSocialSecutityNumberNoLunh' // Done?
-// import { SwedishSocialSecurityNumber } from '..src/bugs/BuggySwedishSocialSecutityNumberNoTrim'
-// import { SwedishSocialSecurityNumber } from '..src/bugs/BuggySwedishSocialSecutityNumberNoLenCheck'
+ import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecutityNumberNoLuhn';
+// import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecurityNumberNoTrim';
+// import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecurityNumberNoLenCheck'
 
 
 //NOTE THESE TESTS SHOULD NOT BE DEPENDENT ON SSNHelper BUT USE MOCKING
@@ -33,7 +33,7 @@ test('Should be correct luhn', () => {
     }
 
     expect(() => {
-        ssn = new SwedishSocialSecurityNumber('980818-3470', mockHelper)}).toThrow
+        ssn = new SwedishSocialSecurityNumber('980818-3470', mockHelper)}).toThrow()
 })
 
 test('Should return trimmed ssn', () => {
@@ -47,5 +47,17 @@ test('Should return trimmed ssn', () => {
 
     const ssn = new SwedishSocialSecurityNumber(' 980818-3470', mockHelper)
     expect(ssn.getSerialNumber()).toBe('3470')
+})
+
+test('should check length of social security number', () => {
+    const mockHelper = {
+        isCorrectLength: jest.fn().mockReturnValue(false),
+        isCorrectFormat: jest.fn().mockReturnValue(true),
+        isValidMonth: jest.fn().mockReturnValue(true),
+        isValidDay: jest.fn().mockReturnValue(true),
+        luhnisCorrect: jest.fn().mockReturnValue(true)
+    }
+    expect(() => {
+        ssn = new SwedishSocialSecurityNumber('19980818-3470', mockHelper)}).toThrow()
 })
 })
