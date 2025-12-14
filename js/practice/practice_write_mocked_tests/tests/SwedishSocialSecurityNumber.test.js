@@ -1,7 +1,7 @@
 import { describe, test, expect, jest } from '@jest/globals'; 
-// import { SwedishSocialSecurityNumber } from '../src/correct/SwedishSocialSecurityNumber';  // Correct
+ import { SwedishSocialSecurityNumber } from '../src/correct/SwedishSocialSecurityNumber';  // Correct
 // import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecutityNumberWrongYear' // Done
- import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecutityNumberNoLuhn';
+// import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecutityNumberNoLuhn';
 // import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecurityNumberNoTrim';
 // import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecurityNumberNoLenCheck'
 
